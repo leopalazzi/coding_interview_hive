@@ -1,0 +1,10 @@
+In order to build a .exe executable for Windows from a .py script, I would use the cx_Freeze python package. 
+In order to use it properly, it is just needed to provide the setup.py file (at the root of the package folder) with the correct information in it. 
+That information simply being the same as for a regular setup.py using the setup method from the setuptools python package (used to install a package in your python environment), to which you simply add an options argument, that is a dictionary containing a 'build_exe' key, to whom you attach as value the list of other used python packages, so that you can create an independant executable file. 
+Once the setup.py file is filled with all the required informations (program name, version, required packages, ...), the .exe file can be created easily calling the python setup.py build command in the terminal, which will create the executable in a 'build' folder created at the root of our package folder.
+
+To resume, only three steps are required:
+- Installing cx_Freeze (pip install cx_Freeze)
+- Creating and filling the setup.py file of your project (with the python dependencies of your package as option in the called setup command imported from cx_Freeze)
+- Creating the executable (python setup.py build)
+
